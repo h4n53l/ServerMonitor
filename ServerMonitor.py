@@ -47,13 +47,7 @@ class Server():
 
         
         if success == False and self.alert == False:
-            # Send Alert
             self.alert = True
-            # Uncomment this once you have setup gmail alerts!
-            # Check out video if you need help!
-            # https://youtu.be/B1IsCbXp0uE
-            # email_alert(self.name,f"{msg}\n{now}","jake@claritycoders.com")
-
         self.create_history(msg,success,now)
 
     def create_history(self, msg, success, now):

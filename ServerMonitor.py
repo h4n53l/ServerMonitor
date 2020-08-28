@@ -2,7 +2,6 @@ import socket
 import ssl
 from datetime import datetime
 import pickle
-
 import subprocess
 import platform
 
@@ -25,17 +24,17 @@ class Server():
         try:
             if self.connection == "plain":
                 socket.create_connection((self.name, self.port), timeout=10)
-                msg = f"{self.name} is up. On port {self.port} with {self.connection}"
+                msg = f"{self.name} is running. On port {self.port} with {self.connection}"
                 success = True
                 self.alert = False
             elif self.connection == "ssl":
                 ssl.wrap_socket(socket.create_connection((self.name, self.port), timeout=10))
-                msg = f"{self.name} is up. On port {self.port} with {self.connection}"
+                msg = f"{self.name} is running. On port {self.port} with {self.connection}"
                 success = True
                 self.alert = False
             else:
                 if self.ping():
-                    msg = f"{self.name} is up. On port {self.port} with {self.connection}"
+                    msg = f"{self.name} is running. On port {self.port} with {self.connection}"
                     success = True
                     self.alert = False
         except socket.timeout:
